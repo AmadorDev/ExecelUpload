@@ -34,7 +34,7 @@ public function importExcel()
     public function index()
     {
         $tareas = Tarea::All();
-        return view("welcome",compact('tareas'));
+        return redirect()->route("login");
     }
 
     /**
