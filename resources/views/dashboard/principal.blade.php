@@ -92,14 +92,14 @@
 <th>{{strtoupper("telefono")}}</th>
 <th>{{strtoupper("correo_electronico")}}</th>
 <th>{{strtoupper("hotel_donde_esta_internado")}}</th>
-<th>{{strtoupper("minsa")}}</th>
-<th>{{strtoupper("personnel")}}</th>
+<th><div class="badge badge-primary">{{strtoupper("minsa")}}</div></th>
+<th><div class="badge badge-primary">{{strtoupper("personnel")}}</div></th>
 <th>{{strtoupper("observaciones_2personnel")}}</th>
 <th>{{strtoupper("desc_hotel")}}</th>
 <th>{{strtoupper("codhotel")}}</th>
-<th>{{strtoupper("tipo_de_registro_check_in_no_show_cancelado")}}</th>
+<th><div class="badge badge-primary">{{strtoupper("tipo_de_registro")}}</div></th>
 <th>{{strtoupper("fecha_ingreso_a_hotel_check_in")}}</th>
-<th>{{strtoupper("condicion_apto_no_apto")}}</th>
+<th><div class="badge badge-primary">{{strtoupper("condicion_apto_no_apto")}}</div></th>
 <th>{{strtoupper("fecha_de_prueba")}}</th>
 <th>{{strtoupper("fecha_de_viaje")}}</th>
 <th>{{strtoupper("hora")}}</th>
