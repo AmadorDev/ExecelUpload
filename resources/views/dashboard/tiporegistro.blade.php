@@ -124,7 +124,13 @@
 <td>{{$e["personnel"]}}</td>
 <td>{{$e["desc_hotel"]}}</td>
 <td>{{$e["codhotel"]}}</td>
-<td>{{$e["tipo_de_registro"]}}</td>
+<td>
+  @if (strtoupper($e["tipo_de_registro"]) == 'CHECK IN')
+    <div class="badge badge-success">{{$e['tipo_de_registro']}}</div>
+    @else
+    <div class="badge badge-warning">{{$e['tipo_de_registro']}}</div>
+  @endif
+</td>
                 </tr>
               @endforeach
              

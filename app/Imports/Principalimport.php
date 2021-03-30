@@ -41,16 +41,22 @@ class Principalimport implements ToCollection,WithHeadingRow
            $princ = DB::table("principals")->where("dni","=",$row["dni"])->get();
            $personnel = DB::table("personnels")->where("dni","=",$row["dni"])->value("estado");
            $minsa = DB::table("minsas")->where("numero_de_documento","=",$row["dni"])
-                  ->value("puesto_de_trabajo");
+                  ->get();
+
+
            $cond = DB::table("condicions")->where("dni","=",$row["dni"])->value("condicion_apto_no_apto");
            $treg = DB::table("tiporegistros")->where("dni","=",$row["dni"])->value("tipo_de_registro");
           
-          \Log::Debug("condi".$cond);
+          if(count($minsa) > 0){
+            $rsminsa = "SI";
+          }else{
+            $rsminsa = "NO";
+          }
           if(count($princ) > 0){
-            \Log::Debug("per".$personnel);
+            
           Principal::where("dni","=",$row["dni"])->update([
             "personnel"=>$personnel,
-            "minsa"=>$minsa,
+            "minsa"=>$rsminsa,
             "tipo_de_registro"=>$treg,
             "condicion_apto_no_apto"=>$cond,
           ]);
@@ -77,7 +83,7 @@ class Principalimport implements ToCollection,WithHeadingRow
                   "telefono"=>$row["telefono"],
                   "correo_electronico"=>$row["correo_electronico"],
                   "hotel_donde_esta_internado"=>$row["hotel_donde_esta_internado"],
-                  "minsa"=>$row["minsa"],
+                  "minsa"=>$rsminsa,
                   "personnel"=>$personnel,
                   "observaciones_2personnel"=>$row["observaciones_2personnel"],
                   "desc_hotel"=>$row["desc_hotel"],

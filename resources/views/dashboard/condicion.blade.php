@@ -123,7 +123,15 @@
 <td>{{$e["desc_hotel"]}}</td>
 <td>{{$e["codhotel"]}}</td>
 <td>{{$e["tipo_de_registro"]}}</td>
-<td>{{$e["condicion_apto_no_apto"]}}</td>
+<td>
+  @if (strtoupper($e["condicion_apto_no_apto"]) == 'APTO' )
+    <div class="badge badge-success">{{$e['condicion_apto_no_apto']}}</div>
+    @else
+    <div class="badge badge-warning">{{$e['condicion_apto_no_apto']}}</div>
+  @endif
+
+  
+</td>
                 </tr>
               @endforeach
 						</tbody>
